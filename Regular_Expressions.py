@@ -33,6 +33,9 @@ print(long_words("I also have a taste for hot chocolate in the afternoon.")) # [
 print(long_words("I never drink tea late at night.")) # []
 
 
+
+
+
 #Extracting a PID Using regexes in Python
 
 log = "July 31 04:51:48 mycomputer bad_process[12345]: ERROR Performing package upgrade"
@@ -82,3 +85,16 @@ print(extract_pid("July 31 07:51:48 mycomputer bad_process[12345]: ERROR Perform
 print(extract_pid("99 elephants in a [cage]")) # None
 print(extract_pid("A string that also has numbers [34567] but no uppercase message")) # None
 print(extract_pid("July 31 08:08:08 mycomputer new_process[67890]: RUNNING Performing backup")) # 67890 (RUNNING)
+
+
+
+
+
+#Splitting and Replacing
+
+re.split(r"[.?!]", "One sentence. Another one? And the last one!")  #['One sentence', ' Another one', ' And the last one', '']
+re.split(r"([.?!])", "One sentence. Another one? And the last one!") #['One sentence', '.', ' Another one', '?', ' And the last one', '!', '']
+
+re.sub(r"[\w.%+-]+@[\w.-]+", "[REDACTED]", "Received an email for go_nuts95@my.example.com" )   #'Received an email for [REDACTED]'
+
+re.sub(r"^([\w .-]*), ([\w .-]*)$", r"\2 \1", "Lovelace, Ada")
