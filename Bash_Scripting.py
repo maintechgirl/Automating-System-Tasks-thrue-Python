@@ -570,5 +570,19 @@ total 0
 
 
 
+### Advanced Command Interaction
 
+# tail /var/log/syslog
+# tail /var/log/syslog | cut -d' ' -f5-
+# cut -d' ' -f5- /var/log/syslog | sort | uniq -c | sort -nr | head
 
+# cat toploglines.sh
+
+#!/bin/bash
+
+for logfile in var/log/*log; do
+    echo "Processing $logfile"
+    cut -d' ' -f5- /var/log/syslog | sort | uniq -c | sort -nr | head
+done
+
+#./toploglines.sh
