@@ -44,14 +44,14 @@
 print("Dont mind me, just a bit of text here...")
 
 #./stdout_example.py
-Dont mind me, just a bit of text here...
+"""Dont mind me, just a bit of text here..."""
 #./stdout_example,py > newfile.txt
 #cat newfile.txt
-Dont mind me, just a bit of text here...
+"""Dont mind me, just a bit of text here..."""
 #./stdout_example,py >> newfile.txt        ##append the output of a command to a .txt file
 #cat newfile.txt
-Dont mind me, just a bit of text here...
-Dont mind me, just a bit of text here...
+"""Dont mind me, just a bit of text here...
+Dont mind me, just a bit of text here..."""
 
 
 ###redirect standard input.
@@ -113,23 +113,23 @@ for line in sys.stdin:
     print(line.strip().capitalize())
 
 # cat haiku.txt
-
+"""
 advance your carrer,
 automating with Python,
 its so fun to learn.
-
+"""
 # cat hailu.txt | ./capitalize.py
-
+"""
 Advance your carrer,
 Automating with Python,
 Its so fun to learn.
-
+"""
 # ./capitalize.py < hailku.txt
-
+"""
 Advance your carrer,
 Automating with Python,
 Its so fun to learn.
-
+"""
 
 
 
@@ -139,7 +139,7 @@ Its so fun to learn.
 
 
 # ping www.example.com
-
+"""
 4 bytes from 93.184.216.34 (93.184.216.34): icmp_seq=1 ttl=53 time=153 ms
 64 bytes from 93.184.216.34 (93.184.216.34): icmp_seq=2 ttl=53 time=171 ms
 64 bytes from 93.184.216.34 (93.184.216.34): icmp_seq=3 ttl=53 time=193 ms
@@ -147,23 +147,23 @@ Its so fun to learn.
 64 bytes from 93.184.216.34 (93.184.216.34): icmp_seq=5 ttl=53 time=136 ms
 64 bytes from 93.184.216.34 (93.184.216.34): icmp_seq=6 ttl=53 time=115 ms
 64 bytes from 93.184.216.34 (93.184.216.34): icmp_seq=7 ttl=53 time=129 ms
-
+"""
 #CTRL+C    (SIGINT)
-
+"""
 --- www.example.com ping statistics ---
 7 packets transmitted, 7 received, 0% packet loss, time 6008ms
 rtt min/avg/max/mdev = 115.113/158.963/215.701/33.564 ms
-
+"""
 # ping www.example.com
-
+"""
 PING www.example.com (93.184.216.34) 56(84) bytes of data.
 64 bytes from 93.184.216.34 (93.184.216.34): icmp_seq=1 ttl=53 time=210 ms
 64 bytes from 93.184.216.34 (93.184.216.34): icmp_seq=2 ttl=53 time=137 ms
-
+"""
 #CTRL+C    (SIGSTOP)
-
+"""
 [1]+  Stopped                 ping www.example.com
-
+"""
 #fg
 
 
@@ -178,11 +178,11 @@ PING www.example.com (93.184.216.34) 56(84) bytes of data.
 
 # (1st terminal) ping www.example.com 
 # (2nd terminal) ps ax | grep ping
-
+"""
  2560 ?        Ssl    0:01 /usr/libexec/gsd-housekeeping
   25797 pts/1    S+     0:00 ping www.example.com
   25806 pts/2    S+     0:00 grep --color=auto ping
-
+"""
 
 # So our PS and grip commands found that the PID for the running ping command is 25797. 
 # We can now use this identifier to send the signal that we want using the Killcommand. 
@@ -409,11 +409,98 @@ Your path is not empty
 #if [ -n "$PATH" ]; then echo "Your path is not empty"; fi
 
 
+
 #https://ryanstutorials.net/bash-scripting-tutorial/
 
 #https://linuxconfig.org/bash-scripting-tutorial-for-beginners
 
 #https://www.shellscript.sh
+
+
+
+
+### Advanced Bash Concepts
+
+
+
+### While Loops in Bash Scripts
+
+#cat while.sh
+#chmod +x while.sh
+
+#!/bin/bash
+
+n=1
+while [ $n -le 5 ]; do
+    echo "Iteration number $n"
+    ((n+=1))
+done
+
+#./while.sh
+
+"""
+Iteration number 1
+Iteration number 2
+Iteration number 3
+Iteration number 4
+Iteration number 5
+"""
+
+
+
+#cat random-exit.py
+
+#!/usr/bin/env python
+
+import sys
+import random
+
+value=random.randint(0,3)
+print("Returning: " + str(value))
+sys.exit(value)
+
+#chmod +x random-exit.py
+#./random-exit.py
+"""
+Returning: 1
+"""
+#./random-exit.py
+"""
+Returning: 3
+"""
+#./random-exit.py
+"""
+Returning: 1
+"""
+
+
+#atom retry.sh
+#chmod +x retry.sh
+
+#!/bin/bash
+
+n=0
+command=$1
+while ! $command && [ $n -le 5 ]; do
+    sleep $n
+    ((n+=1))
+    echo "Retry #$n"
+done;
+
+#./retry.sh ./random-exit.py
+"""
+Returning: 3
+Retry #1
+Returning: 2
+Retry #2
+Returning: 1
+Retry #3
+Returning: 0
+"""
+
+
+
+
 
 
 
