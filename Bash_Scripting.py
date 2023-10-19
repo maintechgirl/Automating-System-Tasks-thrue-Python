@@ -499,15 +499,73 @@ Returning: 0
 """
 
 
+### For Loops in Bash Scripts
 
 
+# cat fruits.sh
+
+#!/bin/bash
+
+for fruit in peach orange apple; do
+    echo "I like $fruit"
+done
+
+# ./fruits.sh
+"""
+I like peach
+I like orange
+I like apple
+"""
 
 
+# cd old_website/
+# ls -l
+"""
+total 0
+-rw-r--r-- 1 user user 0 May 24  2019 about.HTM
+-rw-r--r-- 1 user user 0 May 24  2019 contact.HTM
+-rw-r--r-- 1 user user 0 May 24  2019 footer.HTM
+-rw-r--r-- 1 user user 0 May 24  2019 header.HTM
+-rw-r--r-- 1 user user 0 May 24  2019 index.HTM
+"""
+# basename index.HTM .HTM
+"""index"""
 
+#!/bin/bash
 
+for file in *.HTM; do
+    name=$(basename "$file" .HTM)
+    echo mv "$file" "$name.html"
+done
 
+# chmod +x rename.sh
+# ./rename.sh
+"""
+mv about.HTM about.html
+mv contact.HTM contact.html
+mv footer.HTM footer.html
+mv header.HTM header.html
+mv index.HTM index.html
+"""
+
+#!/bin/bash
+
+for file in *.HTM; do
+    name=$(basename "$file" .HTM)
+    mv "$file" "$name.html"
+done
     
+# ./rename.sh
+#ls -l
 
+"""
+total 0
+-rw-r--r-- 1 user user 0 May 24  2019 about.html
+-rw-r--r-- 1 user user 0 May 24  2019 contact.html
+-rw-r--r-- 1 user user 0 May 24  2019 footer.html
+-rw-r--r-- 1 user user 0 May 24  2019 header.html
+-rw-r--r-- 1 user user 0 May 24  2019 index.html
+"""
 
 
 
