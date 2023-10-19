@@ -293,6 +293,9 @@ These are some commands that are useful to know in Linux when interacting with p
     top: shows the processes currently using the most CPU time (press "q" to quit)  """
 
 
+
+
+
 ###Creating Bash Scripts
 
 #!/bin/bash
@@ -333,6 +336,10 @@ echo "Finishing at: $(date)"
 
 
 
+
+
+
+
 ###Using Variables and Globs
 
 example=hello
@@ -368,3 +375,55 @@ echo *
 
 echo ?????.py
 #the question mark symbol can be used to match exactly one character instead of any amount of characters, 
+
+
+
+
+
+
+
+### Conditional Execution in Bash
+
+
+
+#cat check_localhost.sh
+
+#!/bin/bash
+
+if grep "127.0.0.1" /etc/hosts; then
+        echo "Everything is OK!"
+else
+        echo "ERROR! 127.0.0.1 is not en /etc/hosts"
+fi
+
+#chmod +x check_localhost.sh
+#./check_localhost.sh
+
+127.0.0.1	localhost
+Everything is OK!
+
+#if test -n "$PATH"; then echo "Your path is not empty"; fi
+
+Your path is not empty
+
+#if [ -n "$PATH" ]; then echo "Your path is not empty"; fi
+
+
+#https://ryanstutorials.net/bash-scripting-tutorial/
+
+#https://linuxconfig.org/bash-scripting-tutorial-for-beginners
+
+#https://www.shellscript.sh
+
+
+
+
+
+    
+
+
+
+
+
+
+
