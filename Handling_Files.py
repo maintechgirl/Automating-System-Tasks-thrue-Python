@@ -59,6 +59,8 @@ Print the variable employee_list to check whether it returns a list of dictionar
 
 #!/usr/bin/env python3
 
+import csv
+
 def read_employees(csv_file_location):
     csv.register_dialect('empDialect', skipinitialspace=True, strict=True)
     employee_file = csv.DictReader(open(csv_file_location), dialect = 'empDialect')
@@ -112,6 +114,8 @@ Now, call this function by passing the employee_list from the previous section. 
 #nano generate_report.py
 
 #!/usr/bin/env python3
+
+import csv
 
 def read_employees(csv_file_location):
     csv.register_dialect('empDialect', skipinitialspace=True, strict=True)
@@ -167,6 +171,8 @@ This report.txt file should now have the count of people in each department.
 
 
 #!/usr/bin/env python3
+
+import csv
 
 def read_employees(csv_file_location):
     csv.register_dialect('empDialect', skipinitialspace=True, strict=True)
