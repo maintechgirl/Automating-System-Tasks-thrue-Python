@@ -765,7 +765,15 @@ I am appending text to this test file
 
 ## Find files using bash script
 
-
+"""
+This script should catch all "jane" lines and store them in another text file called oldFiles.txt. 
+Create the text file oldFiles.txt and make sure it's empty. This oldFiles.txt file should save files with username "jane".
+Now, search for all lines that contain the name "jane" and save the file names into a variable. Let's call this variable files, we will refer to it with that name later in the lab.
+Since none of the files present in the file list.txt are available in the file system, check if file names present in files variable are actually present in the file system. 
+To do this, we'll use the test command that we practiced in the previous section.
+Now, iterate over the files variable and add a test expression within the loop. 
+If the item within the files variable passes the test, add/append it to the file oldFiles.txt.
+"""
 
 #cd ~/scripts
 #nano findJane.sh
